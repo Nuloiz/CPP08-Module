@@ -7,7 +7,7 @@ int main() {
     try
     {
         std::cout << easyfind(vec, 5) << std::endl;
-        std::cout << easyfind(vec, 10) << std::endl;
+        std::cout << easyfind(vec, 25) << std::endl;
     } catch (std::exception &e) {
         std::cout << "Element not found" << std::endl;
     }
