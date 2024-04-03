@@ -3,6 +3,8 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
+#include <exception>
+#include <stdlib.h>
 
 class Span
 {

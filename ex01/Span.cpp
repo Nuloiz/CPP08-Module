@@ -18,7 +18,7 @@ Span &Span::operator=(const Span &other) {
 Span::~Span() {
 }
 
-void Spann::addNumber(int number)
+void Span::addNumber(int number)
 {
     if (numbers.size() >= N)
         throw std::exception();
