@@ -28,21 +28,25 @@ void Span::addNumber(int number)
 int Span::shortestSpan()
 {
     int i, l;
-    int j = numbers[0] - numbers[1];
+    int j;
     int k = 0;
 
+    j = INT_MAX;
     if (numbers.size() <= 1)
         throw std::exception();
-    while (k < numbers.size())
+    while (k < (int)numbers.size())
     {
         l = k + 1;
-        while (l < numbers.size()) {
-            if (numbers[k] > numbers[l])
-                i = numbers[k] - numbers[l];
-            else if (numbers[l] > numbers[k])
+        while (l < (int)numbers.size()) {
+            if (numbers[l] > numbers[k])
                 i = numbers[l] - numbers[k];
+            else if (numbers[l] < numbers[k])
+                i = numbers[k] - numbers[l];
             else
+            {
+                std::cout << "Same number twice in the list, at positions " << k << " and " << l << std::endl;
                 throw std::exception();
+            }
             if (i < j)
                 j = i;
             l++;
@@ -54,13 +58,13 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
-    int i = numbers.begin();
-    int j = numbers.begin();
+    int i = numbers[0];
+    int j = numbers[0];
     int k = 1;
 
     if (numbers.size() <= 1)
         throw std::exception();
-    while (k < numbers.size())
+    while (k < (int)numbers.size())
     {
         if (i < numbers[k])
             i = numbers[k];
@@ -70,5 +74,5 @@ int Span::longestSpan()
     }
     if (i == j)
         throw std::exception();
-    return (j - i);
+    return (i - j);
 }

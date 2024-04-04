@@ -1,7 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <list>
+#include <vector>
+#include <climits>
 #include <algorithm>
 #include <exception>
 #include <stdlib.h>
@@ -20,5 +21,5 @@ public:
 
 private:
     unsigned int N;
-    std::list<int> numbers;
+    std::vector<int> numbers;
 };
