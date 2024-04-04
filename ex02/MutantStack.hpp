@@ -5,38 +5,40 @@
 #include <algorithm>
 #include <exception>
 #include <stdlib.h>
+#include <stack>
 
-template <typename T>
+template <class T>
     class MutantStack : public std::stack<T>
     {
     public:
-        MutantStack() : std::stack<T>(){}
+        typedef std::stack<T> stack;
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
-        MutantStack(const MutantStack &other) : std::stack<T>()
+        MutantStack() : stack(){}
+
+        MutantStack(const MutantStack &other) : stack()
         {
             *this = other;
-        };
+        }
 
-        MutantStack &operator=(const MutantStack &other) : std::stack<T>()
+        MutantStack &operator=(const MutantStack &other)
         {
             if (this != &other)
             {
                 std::stack<T>::operator=(other);
             }
             return *this;
-        };
+        }
 
-        ~MutantStack(){};
-
-        typedef typename std::stack<T>::container_type::iterator iterator;
+        ~MutantStack(){}
 
         iterator begin()
         {
             return std::stack<T>::c.begin();
-        };
+        }
 
         iterator end()
         {
             return std::stack<T>::c.end();
-        };
+        }
 };
