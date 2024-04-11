@@ -3,12 +3,15 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <list>
+#include <exception>
+#include <iterator>
 
 template <typename T>
-int easyfind(T &container, int value) {
-    int index = std::find(container.begin(), container.end(), value) - container.begin();
-    if (index > (int)container.size() - 1)
+typename T::iterator easyfind(T &container, int value) {
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
+    if (it == container.end())
         throw std::exception();
-    return index;
+    return it;
 }
 
